@@ -249,6 +249,7 @@ class BarChart extends AbstractChart<BarChartProps, BarChartState> {
                             this.renderBarTops({
                                 ...config,
                                 data: data.datasets[0].data,
+                                colors: colors,
                                 paddingTop: paddingTop as number,
                                 paddingRight: paddingRight as number
                             })}
