@@ -75,7 +75,7 @@ class BarChart extends AbstractChart<BarChartProps, BarChartState> {
                     rx={barRadius}
                     width={barWidth}
                     height={(Math.abs(barHeight) / 4) * 3}
-                    fill={colors && colors.length > 0 ? colors[i]: '#000' }
+                    fill={colors && colors.length > 0 && colors[i] ? colors[i]: '#000' }
                 />
             );
         });
@@ -83,11 +83,12 @@ class BarChart extends AbstractChart<BarChartProps, BarChartState> {
 
     renderBarTops = ({
         data,
+        colors,
         width,
         height,
         paddingTop,
         paddingRight
-    }: Pick<Omit<AbstractChartConfig, "data">, "width" | "height" | "paddingRight" | "paddingTop"> & { data: number[]; }) => {
+    }: Pick<Omit<AbstractChartConfig, "data">, "colors" | "width" | "height" | "paddingRight" | "paddingTop"> & { data: number[]; }) => {
         const baseHeight = this.calcBaseHeight(data, height);
         return data.map((x, i) => {
             const barHeight = this.calcHeight(x, data, height);
@@ -103,7 +104,7 @@ class BarChart extends AbstractChart<BarChartProps, BarChartState> {
                     y={((baseHeight - barHeight) / 4) * 3 + paddingTop}
                     width={barWidth}
                     height={2}
-                    fill={this.props.chartConfig.color(0.6)}
+                    fill={colors && colors.length > 0 && colors[i] ? colors[i]: this.props.chartConfig.color(0.6) }
                 />
             );
         });
