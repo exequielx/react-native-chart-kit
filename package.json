@@ -1,5 +1,5 @@
 {
-  "name": "react-native-chart-kit2",
+  "name": "react-native-chart-kit",
   "version": "6.6.1",
   "devDependencies": {
     "@types/react": "^16.9.38",
