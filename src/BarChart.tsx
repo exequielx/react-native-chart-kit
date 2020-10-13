@@ -75,7 +75,7 @@ class BarChart extends AbstractChart<BarChartProps, BarChartState> {
                     rx={barRadius}
                     width={barWidth}
                     height={(Math.abs(barHeight) / 4) * 3}
-                    fill={colors[i]}
+                    fill={colors && colors.length > 0 ? colors[i]: '#000' }
                 />
             );
         });
